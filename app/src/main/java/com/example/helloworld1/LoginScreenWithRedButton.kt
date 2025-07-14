@@ -1,9 +1,5 @@
 package com.example.helloworld1
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -14,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -26,46 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.helloworld1.ui.theme.HelloWorld1Theme
-import com.example.helloworld1.ui.theme.LoginScreenWithRedButton
-
-class MainActivity : ComponentActivity() {
-
-    var title = "안녕"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-
-        //generate random number
-        val random = (0..100).random()
-        title = random.toString()
-
-
-        setContent {
-            HelloWorld1Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "$title, $title, $title",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
-}
-
-
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    LoginScreen()
-    LoginScreenWithRedButton()
-}
-
-@Composable
-fun LoginScreen() {
+fun LoginScreenWithRedButton() {
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
@@ -96,7 +54,11 @@ fun LoginScreen() {
 
         Button(
             onClick = { /* TODO: 로그인 로직 구현 */ },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            colors =  ButtonDefaults.buttonColors(
+                containerColor = Color(red = 255, green = 0, blue = 0),
+                contentColor = Color.White
+            ) // 버튼 배경색을 빨간색으로 설정
         ) {
             Text("로그인")
         }
@@ -105,18 +67,6 @@ fun LoginScreen() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    LoginScreen()
+fun LoginScreenWithRedButtonPreview() {
+    LoginScreenWithRedButton()
 }
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HelloWorld1Theme {
-        Greeting("Android")
-    }
-}
-
-
