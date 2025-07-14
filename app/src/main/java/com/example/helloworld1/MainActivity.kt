@@ -27,8 +27,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.helloworld1.ui.theme.HelloWorld1Theme
-import com.example.helloworld1.ui.theme.LoginScreenWithRedButton
-
+import com.example.helloworld1.LoginScreenWithRedButton
+import com.example.helloworld1.LoginScreen
+import androidx.compose.ui.res.painterResource // 아이콘 리소스 사용을 위해 추가
+import com.example.helloworld1.SocialLoginScreen
 class MainActivity : ComponentActivity() {
 
     var title = "안녕"
@@ -61,53 +63,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
 //    LoginScreen()
-    LoginScreenWithRedButton()
+    SocialLoginScreen()
 }
 
-@Composable
-fun LoginScreen() {
-    var username by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-        OutlinedTextField(
-            value = username,
-            onValueChange = { username = it },
-            label = { Text("사용자 이름") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        OutlinedTextField(
-            value = password,
-            onValueChange = { password = it },
-            label = { Text("비밀번호") },
-            modifier = Modifier.fillMaxWidth()
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = { /* TODO: 로그인 로직 구현 */ },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("로그인")
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    LoginScreen()
-}
 
 
 
