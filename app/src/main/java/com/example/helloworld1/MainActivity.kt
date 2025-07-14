@@ -31,6 +31,17 @@ import com.example.helloworld1.LoginScreenWithRedButton
 import com.example.helloworld1.LoginScreen
 import androidx.compose.ui.res.painterResource // 아이콘 리소스 사용을 위해 추가
 import com.example.helloworld1.SocialLoginScreen
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.*
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 class MainActivity : ComponentActivity() {
 
     var title = "안녕"
@@ -63,7 +74,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
 //    LoginScreen()
-    SocialLoginScreen()
+    ProductListScreen(
+        products = listOf(
+            ProductItem("1", "빈티지 카메라 판매합니다", "150,000원", "서울시 강남구", 12, android.R.drawable.ic_menu_camera),
+            ProductItem("3", "노이즈 캔슬링 헤드폰", "220,000원", "부산시 해운대구", 25, android.R.drawable.ic_dialog_info), // 적절한 아이콘으로 교체 필요
+            ProductItem("4", "게임용 노트북 급처", "750,000원", "인천시 남동구", 8, android.R.drawable.ic_dialog_dialer) // 적절한 아이콘으로 교체 필요
+
+        )
+    )
 }
 
 
