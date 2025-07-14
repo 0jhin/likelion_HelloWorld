@@ -42,6 +42,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.helloworld1.ContactsScreen
+import com.example.helloworld1.R
 class MainActivity : ComponentActivity() {
 
     var title = "안녕"
@@ -74,16 +76,23 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
 //    LoginScreen()
-    ProductListScreen(
-        products = listOf(
-            ProductItem("1", "빈티지 카메라 판매합니다", "150,000원", "서울시 강남구", 12, android.R.drawable.ic_menu_camera),
-            ProductItem("3", "노이즈 캔슬링 헤드폰", "220,000원", "부산시 해운대구", 25, android.R.drawable.ic_dialog_info), // 적절한 아이콘으로 교체 필요
-            ProductItem("4", "게임용 노트북 급처", "750,000원", "인천시 남동구", 8, android.R.drawable.ic_dialog_dialer) // 적절한 아이콘으로 교체 필요
-
+        ContactsScreen(
+            listOf(
+                Contact("1", "김철수", "010-1234-5678", android.R.drawable.sym_contact_card),
+                Contact("2", "이영희", "010-8765-4321"),
+                Contact("3", "박민준", "010-0000-1111", android.R.drawable.sym_def_app_icon),
+                Contact("4", "최지우", "010-2222-3333")
         )
-    )
 }
 
+//ContactsScreen(
+//contacts = listOf(
+//Contact(id = "1", name ="김철수", phoneNumber = "010-1234-5678", profileImageResId = android.R.drawable.sym_contact_card),
+//Contact(id = "1", name ="김철수", phoneNumber = "010-1234-5678", profileImageResId = android.R.drawable.sym_contact_card),
+//Contact(id = "1", name ="김철수", phoneNumber = "010-1234-5678", profileImageResId = android.R.drawable.sym_contact_card),
+//Contact(id = "1", name ="김철수", phoneNumber = "010-1234-5678", profileImageResId = android.R.drawable.sym_contact_card),
+//)
+//)
 
 
 
